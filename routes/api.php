@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::apiResource("reports", ReportController::class)
+    ->only(['index', 'store']);
+
+Route::prefix("reports")->group(function () {
+    Route::post("downloadDate", [ReportController::class, "downloadDate"])->name("reports.downloadDate");
 });

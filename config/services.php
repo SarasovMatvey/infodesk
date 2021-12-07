@@ -30,4 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'c2d' => [
+        'api_key' => env("C2D_API_KEY"),
+    ]
+
 ];
