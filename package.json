@@ -33,6 +33,7 @@
         "@mantine/prism": "^3.3.4",
         "@mantine/rte": "^3.3.4",
         "dayjs": "^1.10.7",
+        "luxon": "^2.1.1",
         "node-sass": "^7.0.0",
         "prop-types": "^15.7.2",
         "react-tabulator": "^0.16.1"
