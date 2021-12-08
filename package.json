@@ -32,10 +32,14 @@
         "@mantine/notifications": "^3.3.4",
         "@mantine/prism": "^3.3.4",
         "@mantine/rte": "^3.3.4",
+        "@reduxjs/toolkit": "^1.6.2",
         "dayjs": "^1.10.7",
         "luxon": "^2.1.1",
         "node-sass": "^7.0.0",
         "prop-types": "^15.7.2",
-        "react-tabulator": "^0.16.1"
+        "react-redux": "^7.2.6",
+        "react-tabulator": "^0.16.1",
+        "sweetalert2": "^11.3.0",
+        "sweetalert2-react-content": "^4.2.0"
     }
 }
