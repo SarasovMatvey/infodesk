@@ -18053,18 +18053,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Title/Title.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _redux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./redux/store */ "./resources/js/components/redux/store.js");
 /* harmony import */ var _atoms_Container_Container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./atoms/Container/Container */ "./resources/js/components/atoms/Container/Container.js");
 /* harmony import */ var _atoms_MyLoader_MyLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./atoms/MyLoader/MyLoader */ "./resources/js/components/atoms/MyLoader/MyLoader.js");
-/* harmony import */ var _organisms_UsersReports_Fetcher__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./organisms/UsersReports/Fetcher */ "./resources/js/components/organisms/UsersReports/Fetcher.js");
-/* harmony import */ var _organisms_UsersReports_UsersReports__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./organisms/UsersReports/UsersReports */ "./resources/js/components/organisms/UsersReports/UsersReports.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
+/* harmony import */ var _organisms_UsersReports_UsersReports__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./organisms/UsersReports/UsersReports */ "./resources/js/components/organisms/UsersReports/UsersReports.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -18076,19 +18072,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Main() {
-  var isShow = (0,react_redux__WEBPACK_IMPORTED_MODULE_7__.useSelector)(function (state) {
+  var isShow = (0,react_redux__WEBPACK_IMPORTED_MODULE_6__.useSelector)(function (state) {
     return state.loader.isShow;
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_atoms_MyLoader_MyLoader__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_atoms_MyLoader_MyLoader__WEBPACK_IMPORTED_MODULE_4__["default"], {
       isShow: isShow
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_atoms_Container_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_9__.Title, {
-        style: {
-          marginBottom: "10px"
-        },
-        children: "\u041E\u0442\u0447\u0435\u0442\u044B Chat2Desk"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_organisms_UsersReports_Fetcher__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_organisms_UsersReports_UsersReports__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_atoms_Container_Container__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_organisms_UsersReports_UsersReports__WEBPACK_IMPORTED_MODULE_5__["default"], {})
     })]
   });
 }
@@ -18096,9 +18087,9 @@ function Main() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Main);
 
 if (document.getElementById("root")) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_7__.Provider, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_6__.Provider, {
     store: _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"],
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Main, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Main, {
       store: _redux_store__WEBPACK_IMPORTED_MODULE_2__["default"]
     })
   }), document.getElementById("root"));
@@ -18422,6 +18413,69 @@ function SecondReport() {
 
 /***/ }),
 
+/***/ "./resources/js/components/organisms/UsersReports/Sorter.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/organisms/UsersReports/Sorter.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Sorter)
+/* harmony export */ });
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
+/* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mantine/dates */ "./node_modules/@mantine/dates/esm/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+function Sorter() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      date = _useState2[0],
+      setDate = _useState2[1];
+
+  function handleDateChange(selectedDate) {
+    setDate(selectedDate);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    style: {
+      display: "flex",
+      alignItems: "end",
+      gap: "10px"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mantine_dates__WEBPACK_IMPORTED_MODULE_0__.DatePicker, {
+      locale: "ru",
+      placeholder: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u0430\u0442\u0443",
+      label: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430 \u044D\u0442\u0443 \u0434\u0430\u0442\u0443",
+      value: date,
+      onChange: handleDateChange,
+      required: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      children: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/organisms/UsersReports/UsersReports.js":
 /*!************************************************************************!*\
   !*** ./resources/js/components/organisms/UsersReports/UsersReports.js ***!
@@ -18433,13 +18487,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ UsersReports)
 /* harmony export */ });
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Title/Title.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
 /* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
-/* harmony import */ var _FirstReport__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FirstReport */ "./resources/js/components/organisms/UsersReports/FirstReport.js");
-/* harmony import */ var _SecondReport__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SecondReport */ "./resources/js/components/organisms/UsersReports/SecondReport.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Fetcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Fetcher */ "./resources/js/components/organisms/UsersReports/Fetcher.js");
+/* harmony import */ var _FirstReport__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FirstReport */ "./resources/js/components/organisms/UsersReports/FirstReport.js");
+/* harmony import */ var _SecondReport__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SecondReport */ "./resources/js/components/organisms/UsersReports/SecondReport.js");
+/* harmony import */ var _Sorter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Sorter */ "./resources/js/components/organisms/UsersReports/Sorter.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 
@@ -18476,8 +18536,19 @@ var columns = [{
   formatter: "tickCross"
 }];
 function UsersReports() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_FirstReport__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SecondReport__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Title, {
+      style: {
+        marginBottom: "10px"
+      },
+      children: "\u041E\u0442\u0447\u0435\u0442\u044B Chat2Desk"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      style: {
+        display: "flex",
+        gap: "10px"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Fetcher__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Sorter__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FirstReport__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SecondReport__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
   });
 }
 

@@ -45,8 +45,15 @@ class ReportController extends Controller
                     return response()->json(['message' => $dateStatistics['message']], HttpFoundationResponse::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
+                var_dump($dateStatistics);
+                $onlyUserStatusStatistics = array_filter($dateStatistics['data'], function ($report) {
 
-                array_push($fullDayStatistics, ...$dateStatistics['data']);
+                    if ($report['event_type'] === 'userStatus') return true;
+
+                    return false;
+                });
+
+                array_push($fullDayStatistics, ...$onlyUserStatusStatistics);
                 $offset += $limit;
 
                 if (!$dateStatistics['data']) {
