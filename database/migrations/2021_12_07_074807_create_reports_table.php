@@ -16,9 +16,9 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
             $table->text("operator_name");
-            $table->text("status_time");
+            $table->text("status_name");
             $table->timestamp("event_start");
-            $table->timestamp("status_duration");
+            $table->integer("status_duration");
             $table->timestamps();
         });
     }
