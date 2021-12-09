@@ -23,5 +23,6 @@ Route::apiResource("reports", ReportController::class)
     ->only(['index', 'store']);
 
 Route::prefix("reports")->group(function () {
+    Route::get("index", [ReportController::class, "index"])->name("reports.index");
     Route::post("downloadDate", [ReportController::class, "downloadDate"])->name("reports.downloadDate");
 });

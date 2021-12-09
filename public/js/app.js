@@ -18201,16 +18201,16 @@ MySwal.mixin({
 
 /***/ }),
 
-/***/ "./resources/js/components/organisms/UsersReports/Fetcher.js":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/organisms/UsersReports/Fetcher.js ***!
-  \*******************************************************************/
+/***/ "./resources/js/components/organisms/UsersReports/Downloader.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/organisms/UsersReports/Downloader.js ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Fetcher)
+/* harmony export */   "default": () => (/* binding */ Downloader)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
@@ -18247,7 +18247,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Fetcher() {
+function Downloader() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       date = _useState2[0],
@@ -18300,8 +18300,7 @@ function Fetcher() {
       placeholder: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u0430\u0442\u0443",
       label: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043E\u0442\u0447\u0435\u0442 \u0437\u0430 \u044D\u0442\u0443 \u0434\u0430\u0442\u0443",
       value: date,
-      onChange: handleDateChange,
-      required: true
+      onChange: handleDateChange
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_9__.Button, {
       onClick: sendDownloadRequest,
       children: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"
@@ -18311,123 +18310,27 @@ function Fetcher() {
 
 /***/ }),
 
-/***/ "./resources/js/components/organisms/UsersReports/FirstReport.js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/organisms/UsersReports/FirstReport.js ***!
-  \***********************************************************************/
+/***/ "./resources/js/components/organisms/UsersReports/Fetcher.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/organisms/UsersReports/Fetcher.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ FirstReport)
+/* harmony export */   "default": () => (/* binding */ Fetcher)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
-/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var columns = [{
-  title: "Оператор",
-  field: "operator",
-  width: 150
-}, {
-  title: "Статус",
-  field: "status",
-  formatter: "progress"
-}, {
-  title: "Дата",
-  field: "date"
-}, {
-  title: "Время постановки",
-  field: "seton"
-}, {
-  title: "Время снятия",
-  field: "setoff"
-}, {
-  title: "Разница в минутах",
-  field: "diff"
-}];
-function FirstReport() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
-    columns: columns,
-    data: [],
-    layout: "fitData"
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/organisms/UsersReports/SecondReport.js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/organisms/UsersReports/SecondReport.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ SecondReport)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
-/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var columns = [{
-  title: "Оператор",
-  field: "operator",
-  width: 150
-}, {
-  title: "Статус",
-  field: "status",
-  formatter: "progress"
-}, {
-  title: "Дата",
-  field: "date"
-}, {
-  title: "Вход в систему",
-  field: "seton"
-}, {
-  title: "Время снятия",
-  field: "setoff"
-}, {
-  title: "Разница в минутах",
-  field: "diff"
-}];
-function SecondReport() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
-    columns: columns,
-    data: [],
-    layout: "fitData"
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/organisms/UsersReports/Sorter.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/components/organisms/UsersReports/Sorter.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Sorter)
-/* harmony export */ });
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
 /* harmony import */ var _mantine_dates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mantine/dates */ "./node_modules/@mantine/dates/esm/index.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/MySwal/MySwal */ "./resources/js/components/atoms/MySwal/MySwal.js");
+/* harmony import */ var _redux_reducers_loader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../redux/reducers/loader */ "./resources/js/components/redux/reducers/loader.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -18445,34 +18348,205 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Sorter() {
+
+
+
+
+
+function Fetcher(_ref) {
+  var onDataReceive = _ref.onDataReceive;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       date = _useState2[0],
       setDate = _useState2[1];
 
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
+
+  function fetchData() {
+    var url = "/api/reports/index";
+    var dateString = null;
+
+    if (date) {
+      dateString = luxon__WEBPACK_IMPORTED_MODULE_7__.DateTime.fromJSDate(date).toFormat("yyyy-MM-dd");
+      url += "?date=".concat(dateString);
+    }
+
+    dispatch((0,_redux_reducers_loader__WEBPACK_IMPORTED_MODULE_4__.show)());
+    fetch(url, {
+      method: "GET"
+    }).then(function (resp) {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_3__["default"].fire({
+          icon: "error",
+          text: "Ошибка!"
+        });
+      }
+    }).then(function (data) {
+      onDataReceive(data);
+    })["catch"](function (err) {
+      _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_3__["default"].fire({
+        icon: "error",
+        text: "Ошибка!"
+      });
+    })["finally"](function () {
+      dispatch((0,_redux_reducers_loader__WEBPACK_IMPORTED_MODULE_4__.hide)());
+    });
+  }
+
   function handleDateChange(selectedDate) {
     setDate(selectedDate);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     style: {
       display: "flex",
       alignItems: "end",
       gap: "10px"
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mantine_dates__WEBPACK_IMPORTED_MODULE_0__.DatePicker, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_dates__WEBPACK_IMPORTED_MODULE_0__.DatePicker, {
       locale: "ru",
       placeholder: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0434\u0430\u0442\u0443",
       label: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430 \u044D\u0442\u0443 \u0434\u0430\u0442\u0443",
       value: date,
-      onChange: handleDateChange,
-      required: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      onChange: handleDateChange
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
+      onClick: fetchData,
       children: "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"
     })]
   });
 }
+Fetcher.propTypes = {
+  onDataReceive: (prop_types__WEBPACK_IMPORTED_MODULE_5___default().func)
+};
+Fetcher.defaultProps = {
+  onDataReceive: function onDataReceive() {}
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/organisms/UsersReports/FirstReport.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/organisms/UsersReports/FirstReport.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FirstReport)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
+/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var columns = [{
+  title: "Оператор",
+  field: "operatorName"
+}, {
+  title: "Статус",
+  field: "statusName"
+}, {
+  title: "Дата",
+  field: "date"
+}, {
+  title: "Время постановки",
+  field: "setonTime"
+}, {
+  title: "Время снятия",
+  field: "setoffTime"
+}, {
+  title: "Разница в минутах",
+  field: "diff"
+}];
+function FirstReport(_ref) {
+  var data = _ref.data;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
+    columns: columns,
+    data: data,
+    layout: "fitData",
+    options: {
+      pagination: "local",
+      paginationSize: 6
+    }
+  });
+}
+FirstReport.propTypes = {
+  data: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().array)
+};
+FirstReport.defaultProps = {
+  data: []
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/organisms/UsersReports/SecondReport.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/organisms/UsersReports/SecondReport.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SecondReport)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
+/* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var columns = [{
+  title: "Оператор",
+  field: "operatorName"
+}, {
+  title: "Дата",
+  field: "date"
+}, {
+  title: "Вход в систему",
+  field: "loginTime"
+}, {
+  title: "Выход из системы",
+  field: "logoutTime"
+}, {
+  title: "Время нахождения онлайн",
+  field: "onlineTimeSum"
+}];
+function SecondReport(_ref) {
+  var data = _ref.data;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
+    columns: columns,
+    data: data,
+    layout: "fitData",
+    options: {
+      pagination: "local",
+      paginationSize: 6
+    }
+  });
+}
+SecondReport.propTypes = {
+  data: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().array)
+};
+SecondReport.defaultProps = {
+  data: []
+};
 
 /***/ }),
 
@@ -18487,16 +18561,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ UsersReports)
 /* harmony export */ });
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Title/Title.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Title/Title.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-tabulator */ "./node_modules/react-tabulator/lib/index.js");
 /* harmony import */ var react_tabulator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_tabulator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
-/* harmony import */ var _Fetcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Fetcher */ "./resources/js/components/organisms/UsersReports/Fetcher.js");
+/* harmony import */ var _Downloader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Downloader */ "./resources/js/components/organisms/UsersReports/Downloader.js");
 /* harmony import */ var _FirstReport__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FirstReport */ "./resources/js/components/organisms/UsersReports/FirstReport.js");
 /* harmony import */ var _SecondReport__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SecondReport */ "./resources/js/components/organisms/UsersReports/SecondReport.js");
-/* harmony import */ var _Sorter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Sorter */ "./resources/js/components/organisms/UsersReports/Sorter.js");
+/* harmony import */ var _Fetcher__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Fetcher */ "./resources/js/components/organisms/UsersReports/Fetcher.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -18536,8 +18624,54 @@ var columns = [{
   formatter: "tickCross"
 }];
 function UsersReports() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      firstReportData = _useState2[0],
+      setFirstReportData = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      secondReportData = _useState4[0],
+      setSecondReportData = _useState4[1];
+
+  function handleDataReceive(data) {
+    setFirstReportData(data.map(function (report) {
+      var statusStartTimeObj = luxon__WEBPACK_IMPORTED_MODULE_8__.DateTime.fromFormat(report.event_start, "yyyy-MM-dd HH:mm:ss");
+      var statusEndTimeObj = statusStartTimeObj.plus({
+        seconds: report.status_duration
+      });
+      var diffTime = Math.trunc(report.status_duration / 60);
+      return {
+        operatorName: report.operator_name,
+        statusName: report.status_name,
+        date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
+        setonTime: statusStartTimeObj.toFormat("HH:mm:ss"),
+        setoffTime: statusEndTimeObj.toFormat("HH:mm:ss"),
+        diff: diffTime
+      };
+    }));
+    setSecondReportData(data.filter(function (report) {
+      if (report.status_name === "statusOnline") return true;
+      return false;
+    }).map(function (report) {
+      var statusStartTimeObj = luxon__WEBPACK_IMPORTED_MODULE_8__.DateTime.fromFormat(report.event_start, "yyyy-MM-dd HH:mm:ss");
+      var statusEndTimeObj = statusStartTimeObj.plus({
+        seconds: report.status_duration
+      });
+      var diffTime = Math.trunc(report.status_duration / 60);
+      return {
+        operatorName: report.operator_name,
+        statusName: report.status_name,
+        date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
+        loginTime: statusStartTimeObj.toFormat("HH:mm:ss"),
+        logoutTime: statusEndTimeObj.toFormat("HH:mm:ss"),
+        onlineTimeSum: diffTime
+      };
+    }));
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Title, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_9__.Title, {
       style: {
         marginBottom: "10px"
       },
@@ -18547,8 +18681,14 @@ function UsersReports() {
         display: "flex",
         gap: "10px"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Fetcher__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Sorter__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FirstReport__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SecondReport__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Downloader__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Fetcher__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        onDataReceive: handleDataReceive
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_FirstReport__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      data: firstReportData
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SecondReport__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      data: secondReportData
+    })]
   });
 }
 

@@ -6,6 +6,7 @@ use App\Models\Report;
 use Carbon\Carbon;
 use Error;
 use Facade\FlareClient\Http\Response;
+use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
@@ -15,6 +16,23 @@ use Throwable;
 
 class ReportController extends Controller
 {
+    public function index(Request $request)
+    {
+        Validator::make($request->all(), [
+            'date' => 'date_format:Y-m-d'
+        ])->validate();
+
+        $date = $request->query("date");
+
+        if ($date) {
+            $reports = Report::whereDate("event_start", $date)->get();
+
+            return $reports;
+        } else {
+            return Report::all();
+        }
+    }
+
     /**
      * Download all operators statistics for specific day to db.
      *

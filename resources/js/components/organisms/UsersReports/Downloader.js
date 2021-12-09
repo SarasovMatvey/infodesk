@@ -1,41 +1,39 @@
+import React, { useState } from "react";
 import { Button } from "@mantine/core";
 import { DatePicker } from "@mantine/dates";
 import { DateTime } from "luxon";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+import "dayjs/locale/ru";
 import MySwal from "../../atoms/MySwal/MySwal";
-import { show, hide } from "../../redux/reducers/loader";
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { hide, show } from "../../redux/reducers/loader";
 
-export default function Fetcher({ onDataReceive }) {
+export default function Downloader() {
     const [date, setDate] = useState(null);
     const dispatch = useDispatch();
 
-    function fetchData() {
-        let url = "/api/reports/index";
-        let dateString = null;
-
-        if (date) {
-            dateString = DateTime.fromJSDate(date).toFormat("yyyy-MM-dd");
-            url += `?date=${dateString}`;
-        }
+    function sendDownloadRequest() {
+        let dateString = DateTime.fromJSDate(date).toFormat("yyyy-MM-dd");
 
         dispatch(show());
-        fetch(url, {
-            method: "GET",
+        fetch("/api/reports/downloadDate", {
+            method: "POST",
+            body: JSON.stringify({
+                date: dateString,
+            }),
         })
             .then((resp) => {
                 if (resp.ok) {
-                    return resp.json();
+                    MySwal.fire({
+                        icon: "success",
+                        text: "Данные загружены!",
+                    });
                 } else {
                     MySwal.fire({
                         icon: "error",
                         text: "Ошибка!",
                     });
                 }
-            })
-            .then((data) => {
-                onDataReceive(data);
             })
             .catch((err) => {
                 MySwal.fire({
@@ -63,19 +61,11 @@ export default function Fetcher({ onDataReceive }) {
             <DatePicker
                 locale="ru"
                 placeholder="Укажите дату"
-                label="Показать записи за эту дату"
+                label="Загрузить отчет за эту дату"
                 value={date}
                 onChange={handleDateChange}
             />
-            <Button onClick={fetchData}>Загрузить</Button>
+            <Button onClick={sendDownloadRequest}>Загрузить</Button>
         </div>
     );
 }
-
-Fetcher.propTypes = {
-    onDataReceive: PropTypes.func,
-};
-
-Fetcher.defaultProps = {
-    onDataReceive: () => {},
-};
