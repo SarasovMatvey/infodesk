@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DownloadedDate;
 use App\Models\Report;
 use Carbon\Carbon;
 use Error;
@@ -42,10 +43,14 @@ class ReportController extends Controller
     {
         try {
             Validator::make($request->all(), [
-                'date' => 'required|date_format:Y-m-d'
+                'date' => 'required|date_format:Y-m-d|before:today'
             ])->validate();
 
-            $date = $request->json("date");
+            $date = $request->json('date');
+
+            if (DownloadedDate::whereDate('date', $date)->exists()) {
+                return response()->json(['message' => "Selected date already used!"], HttpFoundationResponse::HTTP_CONFLICT);
+            }
 
             // max - 200 for chat2desk
             $limit = 200;
@@ -55,7 +60,7 @@ class ReportController extends Controller
             while (true) {
                 $url = "https://api.chat2desk.com/v1/statistics?report=operator_events&date=$date&limit=$limit&offset=$offset";
                 $dateStatisticsResp = Http::withHeaders([
-                    'Authorization' => Config::get("services.c2d.api_key")
+                    'Authorization' => Config::get('services.c2d.api_key')
                 ])->get($url);
                 $dateStatistics = $dateStatisticsResp->json();
 
@@ -63,7 +68,6 @@ class ReportController extends Controller
                     return response()->json(['message' => $dateStatistics['message']], HttpFoundationResponse::HTTP_INTERNAL_SERVER_ERROR);
                 }
 
-                var_dump($dateStatistics);
                 $onlyUserStatusStatistics = array_filter($dateStatistics['data'], function ($report) {
 
                     if ($report['event_type'] === 'userStatus') return true;
@@ -82,14 +86,16 @@ class ReportController extends Controller
 
             foreach ($fullDayStatistics as $report) {
                 $newReport = new Report;
-
                 $newReport->operator_name = $report['operator_name'];
                 $newReport->status_name = $report['event_name'];
                 $newReport->event_start = Carbon::createFromTimestamp($report['event_start'])->toDate();
                 $newReport->status_duration = $report['status_duration'];
-
                 $newReport->save();
             }
+
+            $newDownloadedDate = new DownloadedDate;
+            $newDownloadedDate->date = Carbon::createFromFormat("Y-m-d", $date)->toDate();
+            $newDownloadedDate->save();
 
             return response()->noContent();
         } catch (Throwable $err) {

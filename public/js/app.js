@@ -18269,6 +18269,11 @@ function Downloader() {
           icon: "success",
           text: "Данные загружены!"
         });
+      } else if (resp.status === 409) {
+        _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_4__["default"].fire({
+          icon: "error",
+          text: "Данные за эту дату уже загружены!"
+        });
       } else {
         _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_4__["default"].fire({
           icon: "error",

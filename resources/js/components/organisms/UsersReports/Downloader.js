@@ -28,6 +28,11 @@ export default function Downloader() {
                         icon: "success",
                         text: "Данные загружены!",
                     });
+                } else if (resp.status === 409) {
+                    MySwal.fire({
+                        icon: "error",
+                        text: "Данные за эту дату уже загружены!",
+                    });
                 } else {
                     MySwal.fire({
                         icon: "error",
