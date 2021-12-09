@@ -15,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:web')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::apiResource("reports", ReportController::class)
+    ->middleware("auth:web")
     ->only(['index', 'store']);
 
-Route::prefix("reports")->group(function () {
-    Route::get("index", [ReportController::class, "index"])->name("reports.index");
-    Route::post("downloadDate", [ReportController::class, "downloadDate"])->name("reports.downloadDate");
-});
+Route::prefix("reports")
+    ->middleware("auth:web")
+    ->group(function () {
+        Route::get("index", [ReportController::class, "index"])->name("reports.index");
+        Route::post("downloadDate", [ReportController::class, "downloadDate"])->name("reports.downloadDate");
+    });

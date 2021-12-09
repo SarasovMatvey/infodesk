@@ -96,6 +96,7 @@ export default function UsersReports() {
                 style={{
                     display: "flex",
                     gap: "10px",
+                    marginBottom: "20px",
                 }}
             >
                 <Downloader />
