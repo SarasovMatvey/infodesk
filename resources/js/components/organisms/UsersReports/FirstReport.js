@@ -1,9 +1,9 @@
-import React, { createRef } from "react";
+import React, { createRef, useState } from "react";
 import { ReactTabulator } from "react-tabulator";
 import PropTypes from "prop-types";
 import { RiDatabase2Line } from "react-icons";
 import "react-tabulator/lib/css/tabulator_semanticui.min.css";
-import { Button } from "@mantine/core";
+import { Button, Select } from "@mantine/core";
 
 const columns = [
     { title: "Оператор", field: "operatorName" },
@@ -21,19 +21,47 @@ const columns = [
 ];
 
 export default function FirstReport({ data }) {
+    const [exportFormat, setExportFormat] = useState("csv");
     const tableRef = createRef();
 
     function downloadReport() {
         if (data.length) {
-            tableRef.current.table.download("csv", "data.csv");
+            tableRef.current.table.download(
+                exportFormat,
+                `report1.${exportFormat}`
+            );
         }
+    }
+
+    function handleExportFormatChange(format) {
+        setExportFormat(format);
     }
 
     return (
         <>
-            <Button compact onClick={downloadReport}>
-                Выгрузить отчет #1
-            </Button>
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "end",
+                    gap: "10px",
+                }}
+            >
+                <Button compact onClick={downloadReport}>
+                    Выгрузить отчет #1
+                </Button>
+                <Select
+                    size="xs"
+                    placeholder="Формат"
+                    data={[
+                        { value: "csv", label: "CSV" },
+                        { value: "xlsx", label: "XLSX" },
+                        { value: "json", label: "JSON" },
+                        { value: "html", label: "HTML" },
+                    ]}
+                    value={exportFormat}
+                    onChange={handleExportFormatChange}
+                />
+            </div>
             <ReactTabulator
                 ref={tableRef}
                 columns={columns}

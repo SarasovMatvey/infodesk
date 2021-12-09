@@ -1,4 +1,4 @@
-import { Title } from "@mantine/core";
+import { Divider, Title } from "@mantine/core";
 import React, { useState } from "react";
 import { ReactTabulator } from "react-tabulator";
 import "react-tabulator/lib/css/tabulator_semanticui.min.css";
@@ -96,12 +96,17 @@ export default function UsersReports() {
                 style={{
                     display: "flex",
                     gap: "10px",
-                    marginBottom: "20px",
+                    marginBottom: "10px",
                 }}
             >
-                <Downloader />
                 <Fetcher onDataReceive={handleDataReceive} />
             </div>
+            <Divider
+                variant="dotted"
+                style={{
+                    marginBottom: "20px",
+                }}
+            />
             <FirstReport data={firstReportData} />
             <SecondReport data={secondReportData} />
         </>

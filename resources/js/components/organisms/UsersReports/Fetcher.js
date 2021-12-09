@@ -66,6 +66,7 @@ export default function Fetcher({ onDataReceive }) {
                 label="Показать записи за эту дату"
                 value={date}
                 onChange={handleDateChange}
+                required
             />
             <Button onClick={fetchData}>Загрузить</Button>
         </div>

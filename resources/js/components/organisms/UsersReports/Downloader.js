@@ -56,7 +56,7 @@ export default function Downloader() {
     }
 
     return (
-        <div
+        <form
             style={{
                 display: "flex",
                 alignItems: "end",
@@ -69,8 +69,9 @@ export default function Downloader() {
                 label="Загрузить отчет за эту дату"
                 value={date}
                 onChange={handleDateChange}
+                required
             />
             <Button onClick={sendDownloadRequest}>Загрузить</Button>
-        </div>
+        </form>
     );
 }

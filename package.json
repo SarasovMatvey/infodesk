@@ -34,6 +34,7 @@
         "@mantine/rte": "^3.3.4",
         "@reduxjs/toolkit": "^1.6.2",
         "dayjs": "^1.10.7",
+        "jspdf": "^2.4.0",
         "luxon": "^2.1.1",
         "node-sass": "^7.0.0",
         "prop-types": "^15.7.2",
