@@ -3,11 +3,101 @@ import { ReactTabulator } from "react-tabulator";
 import PropTypes from "prop-types";
 import { RiDatabase2Line } from "react-icons";
 import "react-tabulator/lib/css/tabulator_semanticui.min.css";
-import { Button, Select } from "@mantine/core";
+import { Button, Select, Text } from "@mantine/core";
+import ReactDOM from "react-dom";
 
 const columns = [
     { title: "Оператор", field: "operatorName" },
-    { title: "Статус", field: "statusName" },
+    {
+        title: "Статус",
+        field: "statusName",
+        formatter: function (cell, formatterParams, onRendered) {
+            let data = cell.getData();
+
+            switch (data.statusName) {
+                case "statusOnline":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"green"}>
+                                Онлайн
+                            </Text>,
+
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusOffline":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"red"}>
+                                Оффлайн
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusBusy":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"yellow"}>
+                                Busy
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusBreak":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"grape"}>
+                                Tech Break
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusTechBreak":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"indigo"}>
+                                Супервайзер
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusStudy":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"orange"}>
+                                ВС
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                case "statusHoliday":
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"pink"}>
+                                Holiday
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+                    break;
+                default:
+                    onRendered(() => {
+                        ReactDOM.render(
+                            <Text size="sm" color={"dark"}>
+                                {data.statusName}
+                            </Text>,
+                            cell.getElement()
+                        );
+                    });
+            }
+        },
+    },
     { title: "Дата", field: "date" },
     { title: "Время постановки", field: "setonTime" },
     {

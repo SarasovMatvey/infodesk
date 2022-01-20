@@ -32,35 +32,10 @@ export default function UsersReports() {
     const [secondReportData, setSecondReportData] = useState([]);
 
     function handleDataReceive(data) {
+        console.log(JSON.parse(JSON.stringify(data)));
+
         setFirstReportData(
-            data.map((report) => {
-                let statusStartTimeObj = DateTime.fromFormat(
-                    report.event_start,
-                    "yyyy-MM-dd HH:mm:ss"
-                );
-                let statusEndTimeObj = statusStartTimeObj.plus({
-                    seconds: report.status_duration,
-                });
-                let diffTime = Math.trunc(report.status_duration / 60);
-
-                return {
-                    operatorName: report.operator_name,
-                    statusName: report.status_name,
-                    date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
-                    setonTime: statusStartTimeObj.toFormat("HH:mm:ss"),
-                    setoffTime: statusEndTimeObj.toFormat("HH:mm:ss"),
-                    diff: diffTime,
-                };
-            })
-        );
-
-        setSecondReportData(
             data
-                .filter((report) => {
-                    if (report.status_name === "statusOnline") return true;
-
-                    return false;
-                })
                 .map((report) => {
                     let statusStartTimeObj = DateTime.fromFormat(
                         report.event_start,
@@ -70,16 +45,118 @@ export default function UsersReports() {
                         seconds: report.status_duration,
                     });
                     let diffTime = Math.trunc(report.status_duration / 60);
+                    let diffTimeSeconds = report.status_duration % 60;
 
                     return {
                         operatorName: report.operator_name,
                         statusName: report.status_name,
                         date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
-                        loginTime: statusStartTimeObj.toFormat("HH:mm:ss"),
-                        logoutTime: statusEndTimeObj.toFormat("HH:mm:ss"),
-                        onlineTimeSum: diffTime,
+                        setonTime: statusStartTimeObj.toFormat("HH:mm:ss"),
+                        setoffTime: statusEndTimeObj.toFormat("HH:mm:ss"),
+                        diff:
+                            diffTime === 0 ? "0:" + diffTimeSeconds : diffTime,
                     };
                 })
+                .filter((report) => {
+                    if (report.setonTime === report.setoffTime) return false;
+
+                    return true;
+                })
+        );
+
+        let operatorsStats = data
+            .filter((report) => {
+                if (report.status_name === "statusOnline") return true;
+
+                return false;
+            })
+            .map((report) => {
+                let statusStartTimeObj = DateTime.fromFormat(
+                    report.event_start,
+                    "yyyy-MM-dd HH:mm:ss"
+                );
+                let statusEndTimeObj = statusStartTimeObj.plus({
+                    seconds: report.status_duration,
+                });
+                let diffTime = report.status_duration / 60;
+
+                return {
+                    operatorName: report.operator_name,
+                    date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
+                    loginTimeObj: statusStartTimeObj.toFormat("HH:mm:ss"),
+                    logoutTimeObj: statusEndTimeObj.toFormat("HH:mm:ss"),
+                    loginTime: statusStartTimeObj.toFormat("HH:mm:ss"),
+                    logoutTime: statusEndTimeObj.toFormat("HH:mm:ss"),
+                    onlineTimeSum: diffTime,
+                    onlineTimeSumSeconds: report.status_duration % 60,
+                };
+            })
+            .filter((report) => {
+                if (report.loginTime === report.logoutTime) return false;
+
+                return true;
+            })
+            .reduce((acc, current) => {
+                if (!acc[current.operatorName]) {
+                    acc[current.operatorName] = {};
+                }
+
+                acc[current.operatorName].date = current.date;
+
+                if (!acc[current.operatorName].loginTime) {
+                    acc[current.operatorName].loginTime = current.loginTime;
+                    acc[current.operatorName].loginTimeObj =
+                        current.loginTimeObj;
+                } else if (
+                    current.loginTimeObj <
+                    acc[current.operatorName].loginTimeObj
+                ) {
+                    acc[current.operatorName].loginTime = current.loginTime;
+                    acc[current.operatorName].loginTimeObj =
+                        current.loginTimeObj;
+                }
+
+                if (!acc[current.operatorName].logoutTime) {
+                    acc[current.operatorName].logoutTime = current.logoutTime;
+                    acc[current.operatorName].logoutTimeObj =
+                        current.logoutTimeObj;
+                } else if (
+                    current.logoutTimeObj >
+                    acc[current.operatorName].logoutTimeObj
+                ) {
+                    acc[current.operatorName].logoutTime = current.logoutTime;
+                    acc[current.operatorName].logoutTimeObj =
+                        current.logoutTimeObj;
+                }
+
+                acc[current.operatorName].onlineTimeSum =
+                    (acc[current.operatorName].onlineTimeSum || 0) +
+                    current.onlineTimeSum;
+                acc[current.operatorName].onlineTimeSumSeconds =
+                    (acc[current.operatorName].onlineTimeSumSeconds || 0) +
+                    current.onlineTimeSumSeconds;
+
+                return acc;
+            }, {});
+
+        setSecondReportData(
+            Object.keys(operatorsStats).map((operatorName) => {
+                return {
+                    operatorName: operatorName,
+                    date: operatorsStats[operatorName].date,
+                    loginTime: operatorsStats[operatorName].loginTime,
+                    logoutTime: operatorsStats[operatorName].logoutTime,
+                    onlineTimeSum:
+                        Math.trunc(
+                            operatorsStats[operatorName].onlineTimeSum
+                        ) === 0
+                            ? "0:" +
+                              operatorsStats[operatorName].onlineTimeSumSeconds
+                            : Math.trunc(
+                                  operatorsStats[operatorName].onlineTimeSum
+                              ),
+                };
+            })
         );
     }
 

@@ -20341,12 +20341,13 @@ function Fetcher(_ref) {
       }
     }).then(function (data) {
       onDataReceive(data);
-    })["catch"](function (err) {
-      _atoms_MySwal_MySwal__WEBPACK_IMPORTED_MODULE_3__["default"].fire({
-        icon: "error",
-        text: "Ошибка!"
-      });
-    })["finally"](function () {
+    }) // .catch((err) => {
+    //     MySwal.fire({
+    //         icon: "error",
+    //         text: "Ошибка!",
+    //     });
+    // })
+    ["finally"](function () {
       dispatch((0,_redux_reducers_loader__WEBPACK_IMPORTED_MODULE_4__.hide)());
     });
   }
@@ -20401,9 +20402,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons */ "./node_modules/react-icons/lib/esm/index.js");
 /* harmony import */ var react_tabulator_lib_css_tabulator_semanticui_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-tabulator/lib/css/tabulator_semanticui.min.css */ "./node_modules/react-tabulator/lib/css/tabulator_semanticui.min.css");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Select/Select.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Text/Text.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.js");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Select/Select.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -20425,12 +20428,97 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var columns = [{
   title: "Оператор",
   field: "operatorName"
 }, {
   title: "Статус",
-  field: "statusName"
+  field: "statusName",
+  formatter: function formatter(cell, formatterParams, onRendered) {
+    var data = cell.getData();
+
+    switch (data.statusName) {
+      case "statusOnline":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "green",
+            children: "\u041E\u043D\u043B\u0430\u0439\u043D"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusOffline":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "red",
+            children: "\u041E\u0444\u0444\u043B\u0430\u0439\u043D"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusBusy":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "yellow",
+            children: "Busy"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusBreak":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "grape",
+            children: "Tech Break"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusTechBreak":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "indigo",
+            children: "\u0421\u0443\u043F\u0435\u0440\u0432\u0430\u0439\u0437\u0435\u0440"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusStudy":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "orange",
+            children: "\u0412\u0421"
+          }), cell.getElement());
+        });
+        break;
+
+      case "statusHoliday":
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "pink",
+            children: "Holiday"
+          }), cell.getElement());
+        });
+        break;
+
+      default:
+        onRendered(function () {
+          react_dom__WEBPACK_IMPORTED_MODULE_5__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            size: "sm",
+            color: "dark",
+            children: data.statusName
+          }), cell.getElement());
+        });
+    }
+  }
 }, {
   title: "Дата",
   field: "date"
@@ -20464,18 +20552,18 @@ function FirstReport(_ref) {
     setExportFormat(format);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       style: {
         display: "flex",
         alignItems: "end",
         gap: "10px"
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Button, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Button, {
         compact: true,
         onClick: downloadReport,
         children: "\u0412\u044B\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043E\u0442\u0447\u0435\u0442 #1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Select, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_9__.Select, {
         size: "xs",
         placeholder: "\u0424\u043E\u0440\u043C\u0430\u0442",
         data: [{
@@ -20494,7 +20582,7 @@ function FirstReport(_ref) {
         value: exportFormat,
         onChange: handleExportFormatChange
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_tabulator__WEBPACK_IMPORTED_MODULE_1__.ReactTabulator, {
       ref: tableRef,
       columns: columns,
       data: data,
@@ -20574,7 +20662,7 @@ var columns = [{
   title: "Выход из системы",
   field: "logoutTime"
 }, {
-  title: "Время нахождения онлайн",
+  title: "Время нахождения онлайн в минутах",
   field: "onlineTimeSum"
 }];
 function SecondReport(_ref) {
@@ -20740,22 +20828,27 @@ function UsersReports() {
       setSecondReportData = _useState4[1];
 
   function handleDataReceive(data) {
+    console.log(JSON.parse(JSON.stringify(data)));
     setFirstReportData(data.map(function (report) {
       var statusStartTimeObj = luxon__WEBPACK_IMPORTED_MODULE_8__.DateTime.fromFormat(report.event_start, "yyyy-MM-dd HH:mm:ss");
       var statusEndTimeObj = statusStartTimeObj.plus({
         seconds: report.status_duration
       });
       var diffTime = Math.trunc(report.status_duration / 60);
+      var diffTimeSeconds = report.status_duration % 60;
       return {
         operatorName: report.operator_name,
         statusName: report.status_name,
         date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
         setonTime: statusStartTimeObj.toFormat("HH:mm:ss"),
         setoffTime: statusEndTimeObj.toFormat("HH:mm:ss"),
-        diff: diffTime
+        diff: diffTime === 0 ? "0:" + diffTimeSeconds : diffTime
       };
+    }).filter(function (report) {
+      if (report.setonTime === report.setoffTime) return false;
+      return true;
     }));
-    setSecondReportData(data.filter(function (report) {
+    var operatorsStats = data.filter(function (report) {
       if (report.status_name === "statusOnline") return true;
       return false;
     }).map(function (report) {
@@ -20763,14 +20856,54 @@ function UsersReports() {
       var statusEndTimeObj = statusStartTimeObj.plus({
         seconds: report.status_duration
       });
-      var diffTime = Math.trunc(report.status_duration / 60);
+      var diffTime = report.status_duration / 60;
       return {
         operatorName: report.operator_name,
-        statusName: report.status_name,
         date: statusStartTimeObj.toFormat("yyyy-MM-dd"),
+        loginTimeObj: statusStartTimeObj.toFormat("HH:mm:ss"),
+        logoutTimeObj: statusEndTimeObj.toFormat("HH:mm:ss"),
         loginTime: statusStartTimeObj.toFormat("HH:mm:ss"),
         logoutTime: statusEndTimeObj.toFormat("HH:mm:ss"),
-        onlineTimeSum: diffTime
+        onlineTimeSum: diffTime,
+        onlineTimeSumSeconds: report.status_duration % 60
+      };
+    }).filter(function (report) {
+      if (report.loginTime === report.logoutTime) return false;
+      return true;
+    }).reduce(function (acc, current) {
+      if (!acc[current.operatorName]) {
+        acc[current.operatorName] = {};
+      }
+
+      acc[current.operatorName].date = current.date;
+
+      if (!acc[current.operatorName].loginTime) {
+        acc[current.operatorName].loginTime = current.loginTime;
+        acc[current.operatorName].loginTimeObj = current.loginTimeObj;
+      } else if (current.loginTimeObj < acc[current.operatorName].loginTimeObj) {
+        acc[current.operatorName].loginTime = current.loginTime;
+        acc[current.operatorName].loginTimeObj = current.loginTimeObj;
+      }
+
+      if (!acc[current.operatorName].logoutTime) {
+        acc[current.operatorName].logoutTime = current.logoutTime;
+        acc[current.operatorName].logoutTimeObj = current.logoutTimeObj;
+      } else if (current.logoutTimeObj > acc[current.operatorName].logoutTimeObj) {
+        acc[current.operatorName].logoutTime = current.logoutTime;
+        acc[current.operatorName].logoutTimeObj = current.logoutTimeObj;
+      }
+
+      acc[current.operatorName].onlineTimeSum = (acc[current.operatorName].onlineTimeSum || 0) + current.onlineTimeSum;
+      acc[current.operatorName].onlineTimeSumSeconds = (acc[current.operatorName].onlineTimeSumSeconds || 0) + current.onlineTimeSumSeconds;
+      return acc;
+    }, {});
+    setSecondReportData(Object.keys(operatorsStats).map(function (operatorName) {
+      return {
+        operatorName: operatorName,
+        date: operatorsStats[operatorName].date,
+        loginTime: operatorsStats[operatorName].loginTime,
+        logoutTime: operatorsStats[operatorName].logoutTime,
+        onlineTimeSum: Math.trunc(operatorsStats[operatorName].onlineTimeSum) === 0 ? "0:" + operatorsStats[operatorName].onlineTimeSumSeconds : Math.trunc(operatorsStats[operatorName].onlineTimeSum)
       };
     }));
   }

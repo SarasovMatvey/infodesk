@@ -13,7 +13,7 @@ const columns = [
         field: "logoutTime",
     },
     {
-        title: "Время нахождения онлайн",
+        title: "Время нахождения онлайн в минутах",
         field: "onlineTimeSum",
     },
 ];

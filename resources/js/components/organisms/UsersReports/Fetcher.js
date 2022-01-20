@@ -37,12 +37,12 @@ export default function Fetcher({ onDataReceive }) {
             .then((data) => {
                 onDataReceive(data);
             })
-            .catch((err) => {
-                MySwal.fire({
-                    icon: "error",
-                    text: "Ошибка!",
-                });
-            })
+            // .catch((err) => {
+            //     MySwal.fire({
+            //         icon: "error",
+            //         text: "Ошибка!",
+            //     });
+            // })
             .finally(() => {
                 dispatch(hide());
             });
