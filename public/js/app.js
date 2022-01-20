@@ -20664,6 +20664,21 @@ var columns = [{
 }, {
   title: "Время нахождения онлайн в минутах",
   field: "onlineTimeSum"
+}, {
+  title: "Busy",
+  field: "busySum"
+}, {
+  title: "Tech Break",
+  field: "techBreakSum"
+}, {
+  title: "Супервайзер",
+  field: "superviserSum"
+}, {
+  title: "ВС",
+  field: "bcSum"
+}, {
+  title: "Holiday",
+  field: "holidaySum"
 }];
 function SecondReport(_ref) {
   var data = _ref.data;
@@ -20848,10 +20863,11 @@ function UsersReports() {
       if (report.setonTime === report.setoffTime) return false;
       return true;
     }));
-    var operatorsStats = data.filter(function (report) {
-      if (report.status_name === "statusOnline") return true;
-      return false;
-    }).map(function (report) {
+    var operatorsStats = data // .filter((report) => {
+    //     if (report.status_name === "statusOnline") return true;
+    //     return false;
+    // })
+    .map(function (report) {
       var statusStartTimeObj = luxon__WEBPACK_IMPORTED_MODULE_8__.DateTime.fromFormat(report.event_start, "yyyy-MM-dd HH:mm:ss");
       var statusEndTimeObj = statusStartTimeObj.plus({
         seconds: report.status_duration
@@ -20864,8 +20880,9 @@ function UsersReports() {
         logoutTimeObj: statusEndTimeObj.toFormat("HH:mm:ss"),
         loginTime: statusStartTimeObj.toFormat("HH:mm:ss"),
         logoutTime: statusEndTimeObj.toFormat("HH:mm:ss"),
-        onlineTimeSum: diffTime,
-        onlineTimeSumSeconds: report.status_duration % 60
+        statusTimeSum: diffTime,
+        statusTimeSumSeconds: report.status_duration % 60,
+        statusName: report.status_name
       };
     }).filter(function (report) {
       if (report.loginTime === report.logoutTime) return false;
@@ -20893,8 +20910,43 @@ function UsersReports() {
         acc[current.operatorName].logoutTimeObj = current.logoutTimeObj;
       }
 
-      acc[current.operatorName].onlineTimeSum = (acc[current.operatorName].onlineTimeSum || 0) + current.onlineTimeSum;
-      acc[current.operatorName].onlineTimeSumSeconds = (acc[current.operatorName].onlineTimeSumSeconds || 0) + current.onlineTimeSumSeconds;
+      switch (current.statusName) {
+        case "statusOnline":
+          acc[current.operatorName].onlineTimeSum = (acc[current.operatorName].onlineTimeSum || 0) + current.statusTimeSum;
+          acc[current.operatorName].onlineTimeSumSeconds = (acc[current.operatorName].onlineTimeSumSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusOffline":
+          acc[current.operatorName].offlineSum = (acc[current.operatorName].offlineSum || 0) + current.statusTimeSum;
+          acc[current.operatorName].offlineSumSeconds = (acc[current.operatorName].offlineSumSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusBusy":
+          acc[current.operatorName].busySum = (acc[current.operatorName].busySum || 0) + current.statusTimeSum;
+          acc[current.operatorName].busySumSeconds = (acc[current.operatorName].busySumSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusBreak":
+          acc[current.operatorName].breakSum = (acc[current.operatorName].breakSum || 0) + current.statusTimeSum;
+          acc[current.operatorName].breakSumSeconds = (acc[current.operatorName].breakSumSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusTechBreak":
+          acc[current.operatorName].techSum = (acc[current.operatorName].techSum || 0) + current.statusTimeSum;
+          acc[current.operatorName].techSeconds = (acc[current.operatorName].techSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusStudy":
+          acc[current.operatorName].studySum = (acc[current.operatorName].studySum || 0) + current.statusTimeSum;
+          acc[current.operatorName].studySumSeconds = (acc[current.operatorName].studySumSeconds || 0) + current.statusTimeSumSeconds;
+          break;
+
+        case "statusHoliday":
+          acc[current.operatorName].studyHoliday = (acc[current.operatorName].studyHoliday || 0) + current.statusTimeSum;
+          acc[current.operatorName].studyHolidaySeconds = (acc[current.operatorName].studyHolidaySeconds || 0) + current.statusTimeSumSeconds;
+          break;
+      }
+
       return acc;
     }, {});
     setSecondReportData(Object.keys(operatorsStats).map(function (operatorName) {
@@ -20903,7 +20955,12 @@ function UsersReports() {
         date: operatorsStats[operatorName].date,
         loginTime: operatorsStats[operatorName].loginTime,
         logoutTime: operatorsStats[operatorName].logoutTime,
-        onlineTimeSum: Math.trunc(operatorsStats[operatorName].onlineTimeSum) === 0 ? "0:" + operatorsStats[operatorName].onlineTimeSumSeconds : Math.trunc(operatorsStats[operatorName].onlineTimeSum)
+        onlineTimeSum: (Math.trunc(operatorsStats[operatorName].onlineTimeSum) === 0 ? "0:" + operatorsStats[operatorName].onlineTimeSumSeconds : Math.trunc(operatorsStats[operatorName].onlineTimeSum)) || 0,
+        busySum: (Math.trunc(operatorsStats[operatorName].busySum) === 0 ? "0:" + operatorsStats[operatorName].busySumSeconds : Math.trunc(operatorsStats[operatorName].busySum)) || 0,
+        techBreakSum: (Math.trunc(operatorsStats[operatorName].breakSum) === 0 ? "0:" + operatorsStats[operatorName].breakSumSeconds : Math.trunc(operatorsStats[operatorName].breakSum)) || 0,
+        superviserSum: (Math.trunc(operatorsStats[operatorName].techSum) === 0 ? "0:" + operatorsStats[operatorName].techSumSeconds : Math.trunc(operatorsStats[operatorName].techSum)) || 0,
+        bcSum: (Math.trunc(operatorsStats[operatorName].studySum) === 0 ? "0:" + operatorsStats[operatorName].studySumSeconds : Math.trunc(operatorsStats[operatorName].studySum)) || 0,
+        holidaySum: (Math.trunc(operatorsStats[operatorName].studyHoliday) === 0 ? "0:" + operatorsStats[operatorName].studyHolidaySeconds : Math.trunc(operatorsStats[operatorName].studyHoliday)) || 0
       };
     }));
   }

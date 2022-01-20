@@ -16,6 +16,26 @@ const columns = [
         title: "Время нахождения онлайн в минутах",
         field: "onlineTimeSum",
     },
+    {
+        title: "Busy",
+        field: "busySum",
+    },
+    {
+        title: "Tech Break",
+        field: "techBreakSum",
+    },
+    {
+        title: "Супервайзер",
+        field: "superviserSum",
+    },
+    {
+        title: "ВС",
+        field: "bcSum",
+    },
+    {
+        title: "Holiday",
+        field: "holidaySum",
+    },
 ];
 
 export default function SecondReport({ data }) {
